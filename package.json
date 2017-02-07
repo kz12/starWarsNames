@@ -2,13 +2,16 @@
   "name": "star_wars_names_kai",
   "version": "0.0.0-development",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "commit": "git-cz",
-    "test": "mocha src/index.test.js -w",
-    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "test:single": "istanbul cover -x src/*.test.js _mocha -- -R spec src/index.test.js",
+    "cover": "nyc npm t",
+    "watch:test": "npm t -- -w",
+    "test": "mocha src/index.test.js --compilers js:babel-register",
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore src/*.test.js src",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -27,6 +30,9 @@
   },
   "homepage": "https://github.com/kz12/starWarsNames#readme",
   "devDependencies": {
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-stage-2": "6.22.0",
+    "babel-register": "6.22.0",
     "chai": "3.5.0",
     "codecov.io": "0.1.6",
     "commitizen": "2.9.5",
@@ -34,6 +40,8 @@
     "ghooks": "2.0.0",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
+    "nyc": "10.1.2",
+    "rimraf": "2.5.4",
     "semantic-release": "^6.3.2"
   },
   "config": {
@@ -41,10 +49,20 @@
       "path": "cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test:single && npm run check-coverage"
+      "pre-commit": "npm run cover && npm run check-coverage"
     }
   },
   "dependencies": {
     "unique-random-array": "1.0.0"
-  }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
