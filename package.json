@@ -41,5 +41,8 @@
     "ghooks": {
       "pre-commit": "npm run test:single && npm run check-coverage"
     }
+  },
+  "dependencies": {
+    "unique-random-array": "1.0.0"
   }
 }
