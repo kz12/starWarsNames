@@ -1,16 +1,18 @@
 {
   "name": "star_wars_names",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "commit": "git-cz",
     "test": "mocha src/index.test.js -w",
-    "test:single": "istanbul cover -x src/*.test.js _mocha -- -R spec src/index.test.js"
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "test:single": "istanbul cover -x src/*.test.js _mocha -- -R spec src/index.test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kz12/starWarsNames.git"
+    "url": "https://github.com/kz12/starWarsNames.git"
   },
   "keywords": [
     "star",
@@ -28,14 +30,15 @@
     "cz-conventional-changelog": "1.2.0",
     "ghooks": "2.0.0",
     "istanbul": "0.4.5",
-    "mocha": "3.2.0"
+    "mocha": "3.2.0",
+    "semantic-release": "^6.3.2"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test:single"
+      "pre-commit": "npm run test:single && npm run check-coverage"
     }
   }
 }
