@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "commit": "git-cz",
     "test": "mocha src/index.text.js -w",
     "test:single": "mocha src/index.test.js"
   },
@@ -23,6 +24,14 @@
   "homepage": "https://github.com/kz12/starWarsNames#readme",
   "devDependencies": {
     "chai": "3.5.0",
+    "commitizen": "2.9.5",
+    "cz-conventional-changelog": "1.2.0",
+    "istanbul": "0.4.5",
     "mocha": "3.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
