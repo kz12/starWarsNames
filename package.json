@@ -1,0 +1,23 @@
+{
+  "name": "star_wars_names",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kz12/starWarsNames.git"
+  },
+  "keywords": [
+    "star",
+    "wars"
+  ],
+  "author": "Kai Zhong <kz12@ic.ac.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kz12/starWarsNames/issues"
+  },
+  "homepage": "https://github.com/kz12/starWarsNames#readme"
+}
