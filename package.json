@@ -1,5 +1,5 @@
 {
-  "name": "star_wars_names",
+  "name": "star_wars_names_kai",
   "version": "0.0.0-development",
   "description": "",
   "main": "src/index.js",
@@ -17,7 +17,8 @@
   },
   "keywords": [
     "star",
-    "wars"
+    "wars",
+    "kai"
   ],
   "author": "Kai Zhong <kz12@ic.ac.uk>",
   "license": "MIT",
